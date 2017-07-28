@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".GSMDataFragment">
+
+    <TextView
+        android:id="@+id/gsm_data_bsss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="@string/bsss" />
+
+    <TextView
+        android:id="@+id/gsm_data_gps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="@string/gps" />
+
+    <TextView
+        android:id="@+id/gsm_data_lac"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="@string/lac" />
+
+    <TextView
+        android:id="@+id/gsm_data_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="@string/date" />
+
+    <TextView
+        android:id="@+id/gsm_data_model"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:text="@string/model" />
+
+</LinearLayout>

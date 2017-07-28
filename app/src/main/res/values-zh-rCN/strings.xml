@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">伪基站</string>
+    <string name="bsss">BSSS :</string>
+    <string name="gps">GPS :</string>
+    <string name="lac">LAC :</string>
+    <string name="date">Date :</string>
+    <string name="model">Model :</string>
+</resources>
