@@ -9,36 +9,23 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10.0">
+        android:layout_weight="9.0">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:contentDescription="@string/baidu_map_sdk"
             android:gravity="center"
-            android:text="Baidu Map SDK"
+            android:text="@string/baidu_map_sdk"
             android:textColor="@color/colorPrimary"
             android:textSize="22sp" />
     </FrameLayout>
 
-    <LinearLayout
+    <fragment
+        android:id="@+id/gsm_data_fragment"
+        android:name="com.bluedon.gsm.detector.GSMDataFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6.0"
-        android:orientation="horizontal">
-
-        <fragment
-            android:id="@+id/gsm_data_fragment"
-            android:name="com.bluedon.gsm.detector.GSMDataFragment"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1.0" />
-
-        <ListView
-            android:id="@+id/pseudo_gsm_list"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1.6"
-            android:background="@color/colorPrimary" />
-    </LinearLayout>
+        android:layout_weight="7.0" />
 
 </LinearLayout>

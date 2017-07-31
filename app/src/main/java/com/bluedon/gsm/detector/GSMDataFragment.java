@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import butterknife.BindString;
@@ -19,21 +20,15 @@ public class GSMDataFragment extends Fragment {
 
     private Unbinder unbinder;
 
-    @BindView(R.id.gsm_data_bsss)
-    TextView bsssView;
-    @BindView(R.id.gsm_data_lac)
-    TextView lacView;
     @BindView(R.id.gsm_data_gps)
     TextView gpsView;
     @BindView(R.id.gsm_data_date)
     TextView dateView;
     @BindView(R.id.gsm_data_model)
     TextView modelView;
+    @BindView(R.id.gsm_cell_list)
+    ListView cellListView;
 
-    @BindString(R.string.bsss)
-    String b;
-    @BindString(R.string.lac)
-    String l;
     @BindString(R.string.gps)
     String g;
     @BindString(R.string.date)
@@ -57,14 +52,15 @@ public class GSMDataFragment extends Fragment {
             @SuppressLint("SetTextI18n")
             @Override
             public void run() {
-                mGSMData = GSMDataCreator.newGSMData(getActivity());
-                bsssView.setText(b + mGSMData.bsss);
-                lacView.setText(l + mGSMData.lac);
+                Context context = getActivity();
+                mGSMData = new GSMData(context);
+                GSMCellInfoAdapter adapter = new GSMCellInfoAdapter(context, mGSMData.cells);
                 gpsView.setText(g + mGSMData.gps);
                 dateView.setText(d + mGSMData.date);
                 modelView.setText(m + mGSMData.model);
+                cellListView.setAdapter(adapter);
             }
-        }, 2000L);
+        }, 1000L);
         return rootView;
     }
 
