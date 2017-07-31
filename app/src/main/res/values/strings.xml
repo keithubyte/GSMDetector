@@ -8,5 +8,5 @@
     <string name="lac">LAC:</string>
     <string name="date">Date:</string>
     <string name="model">Model:</string>
-    <string name="baidu_map_sdk">Baidu Map SDK</string>
+    <string name="location_rationale">This app needs your location to know where you are.</string>
 </resources>
