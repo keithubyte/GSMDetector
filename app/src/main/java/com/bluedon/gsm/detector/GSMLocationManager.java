@@ -46,9 +46,9 @@ public class GSMLocationManager {
 
         @Override
         public void onLocationChanged(Location location) {
-            Log.e(TAG, "location info | from : " + location.getProvider()
-                    + ", " + location.getLatitude()
-                    + ", " + location.getLongitude());
+            Log.e(TAG, "location info | from " + location.getProvider()
+                    + ", latitude " + location.getLatitude()
+                    + ", longitude " + location.getLongitude());
             currentLoc = location;
         }
 

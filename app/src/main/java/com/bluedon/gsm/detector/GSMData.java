@@ -41,7 +41,7 @@ public class GSMData {
 
     private String getGPS(Location location) {
         if (location == null) return null;
-        return location.getLongitude() + ", " + location.getLatitude();
+        return location.getLongitude() + " / " + location.getLatitude();
     }
 
     private String getDate() {

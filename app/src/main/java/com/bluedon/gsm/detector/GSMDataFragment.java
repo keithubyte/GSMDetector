@@ -106,6 +106,7 @@ public class GSMDataFragment extends Fragment implements EasyPermissions.Permiss
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_gsmdata, container, false);
         unbinder = ButterKnife.bind(this, rootView);
+        cellListView.addHeaderView(View.inflate(getActivity(), R.layout.list_view_header, null));
         mGLM = new GSMLocationManager(getActivity());
         checkLocationPerms(getActivity());
         handler = new MHandler(this);

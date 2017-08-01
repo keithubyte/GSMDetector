@@ -6,20 +6,12 @@
     android:orientation="vertical"
     tools:context="com.bluedon.gsm.detector.GSMActivity">
 
-    <FrameLayout
+    <fragment
+        android:id="@+id/baidu_map_fragment"
+        android:name="com.bluedon.gsm.detector.BaiduMapFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="9.0">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/baidu_map_sdk"
-            android:gravity="center"
-            android:text="@string/baidu_map_sdk"
-            android:textColor="@color/colorPrimary"
-            android:textSize="22sp" />
-    </FrameLayout>
+        android:layout_weight="9.0" />
 
     <fragment
         android:id="@+id/gsm_data_fragment"
