@@ -44,6 +44,7 @@ public class GSMCellInfoCollector {
                 }
             }
         }
+        BSRetrofit.getBSLocations(cells);
         return cells;
     }
 

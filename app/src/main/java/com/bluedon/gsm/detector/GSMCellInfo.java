@@ -29,6 +29,10 @@ public class GSMCellInfo {
         return false;
     }
 
+    public String getBSInfo() {
+        return mcc + "," + mnc + "," + lac + "," + ci;
+    }
+
     @Override
     public String toString() {
         return "GSMCellInfoBean{" +
