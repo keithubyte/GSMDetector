@@ -53,9 +53,11 @@ public class GSMCellInfoAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
         GSMCellInfo info = cells.get(position);
-        holder.typeView.setText(info.getType());
-        holder.bsssView.setText("" + info.getBsss());
-        holder.lacView.setText("" + info.getLac());
+        holder.typeView.setText(info.type);
+        holder.bsssView.setText("" + info.bsss);
+        holder.lacView.setText("" + info.lac);
+        holder.cidView.setText("" + info.ci);
+        holder.locationView.setText(info.latitude + "/" + info.longitude);
         return view;
     }
 
@@ -66,6 +68,10 @@ public class GSMCellInfoAdapter extends BaseAdapter {
         TextView bsssView;
         @BindView(R.id.cell_lac)
         TextView lacView;
+        @BindView(R.id.cell_cid)
+        TextView cidView;
+        @BindView(R.id.cell_location)
+        TextView locationView;
 
         ViewHolder(View view) {
             ButterKnife.bind(this, view);

@@ -14,17 +14,30 @@
         android:paddingBottom="4dp"
         android:paddingTop="4dp"
         android:text="@string/network_type"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textSize="10sp" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="3.0"
+        android:layout_weight="1.0"
         android:gravity="center"
         android:paddingBottom="4dp"
         android:paddingTop="4dp"
         android:text="@string/bsss"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textSize="10sp" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:gravity="center"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:text="@string/lac"
+        android:textColor="@android:color/white"
+        android:textSize="10sp" />
 
     <TextView
         android:layout_width="0dp"
@@ -33,7 +46,18 @@
         android:gravity="center"
         android:paddingBottom="4dp"
         android:paddingTop="4dp"
-        android:text="@string/lac"
-        android:textColor="@android:color/white" />
+        android:text="@string/cid"
+        android:textColor="@android:color/white"
+        android:textSize="10sp" />
 
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3.0"
+        android:gravity="center"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:text="@string/location"
+        android:textColor="@android:color/white"
+        android:textSize="10sp" />
 </LinearLayout>

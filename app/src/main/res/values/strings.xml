@@ -15,5 +15,7 @@
     <string name="title_latitude">Latitude:</string>
     <string name="title_longitude">Longitude:</string>
     <string name="pseudo_cell_base">Pseudo Cell Base #</string>
-    <string name="network_type">Network Type</string>
+    <string name="network_type">Type</string>
+    <string name="cid">CID</string>
+    <string name="location">Location</string>
 </resources>

@@ -1,78 +1,45 @@
 package com.bluedon.gsm.detector;
 
-import android.telephony.CellInfo;
-import android.telephony.CellInfoGsm;
-import android.telephony.CellInfoLte;
-import android.telephony.CellInfoWcdma;
-
 /**
  * Author: Keith
- * Date: 2017/7/31
+ * Date: 2017/8/2
  */
-
 public class GSMCellInfo {
+    public int mcc;
+    public int mnc;
+    public int lac;
+    public int ci;
+    public int bsss;
+    public String type;
+    public double latitude;
+    public double longitude;
 
-    private enum CellType {
-        GSM("GSM"), WCDMA("WCDMA"), LTE("LTE"), NONE("NONE");
-
-        CellType(String name) {
-        }
-    }
-
-    private CellType type;
-    private CellInfoGsm gsm;
-    private CellInfoWcdma wcdma;
-    private CellInfoLte lte;
-
-    public GSMCellInfo(CellInfo cellInfo) {
-        if (cellInfo == null) {
-            type = CellType.NONE;
-        } else {
-            if (cellInfo instanceof CellInfoGsm) {
-                gsm = (CellInfoGsm) cellInfo;
-                type = CellType.GSM;
-            } else if (cellInfo instanceof CellInfoWcdma) {
-                wcdma = (CellInfoWcdma) cellInfo;
-                type = CellType.WCDMA;
-            } else if (cellInfo instanceof CellInfoLte) {
-                lte = (CellInfoLte) cellInfo;
-                type = CellType.LTE;
+    public boolean isValid() {
+        if (0 < lac && lac < 65535) {
+            switch (type) {
+                case "GSM":
+                    return (0 < ci && ci < 65535);
+                case "WCDMA":
+                case "LTE":
+                    return (0 < ci && ci < 268435455);
+                default:
+                    return false;
             }
         }
+        return false;
     }
 
-    public String getType() {
-        return type.name();
-    }
-
-    public int getLac() {
-        switch (type) {
-            case GSM:
-                return gsm.getCellIdentity().getLac();
-            case WCDMA:
-                return wcdma.getCellIdentity().getLac();
-            case LTE:
-                return lte.getCellIdentity().getTac();
-            default:
-                return Integer.MIN_VALUE;
-        }
-    }
-
-    public int getBsss() {
-        int rssi = Integer.MIN_VALUE;
-        switch (type) {
-            case GSM:
-                rssi = gsm.getCellSignalStrength().getDbm();
-                break;
-            case WCDMA:
-                rssi = wcdma.getCellSignalStrength().getDbm();
-                break;
-            case LTE:
-                rssi = lte.getCellSignalStrength().getDbm();
-                break;
-            default:
-                // ignored
-        }
-        return rssi == Integer.MIN_VALUE ? Integer.MIN_VALUE : rssi * 2 - 113;
+    @Override
+    public String toString() {
+        return "GSMCellInfoBean{" +
+                "mcc=" + mcc +
+                ", mnc=" + mnc +
+                ", lac=" + lac +
+                ", ci=" + ci +
+                ", bsss=" + bsss +
+                ", type='" + type + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                '}';
     }
 }

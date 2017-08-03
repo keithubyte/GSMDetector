@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">火眼金睛</string>
-    <string name="bsss">信号强度（BSSS/dbm）</string>
+    <string name="bsss">BSSS</string>
     <string name="gps">纬度/经度：</string>
-    <string name="lac">位置区码（LAC）</string>
+    <string name="lac">LAC</string>
     <string name="date">时间：</string>
     <string name="model">手机型号：</string>
     <string name="location_rationale">本应用需要使用您的位置信息。</string>
@@ -13,5 +13,7 @@
     <string name="title_latitude">纬度：</string>
     <string name="title_longitude">经度：</string>
     <string name="pseudo_cell_base">伪基站#</string>
-    <string name="network_type">网络类型</string>
+    <string name="network_type">类型</string>
+    <string name="cid">CID</string>
+    <string name="location">位置</string>
 </resources>

@@ -3,8 +3,6 @@ package com.bluedon.gsm.detector;
 import android.content.Context;
 import android.location.Location;
 import android.os.Build;
-import android.telephony.CellInfo;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import java.text.SimpleDateFormat;
@@ -31,10 +29,9 @@ public class GSMData {
     private List<GSMCellInfo> getCells(Context context) {
         List<GSMCellInfo> cells = new ArrayList<>();
         Context c = context.getApplicationContext();
-        TelephonyManager tm = (TelephonyManager) c.getSystemService(Context.TELEPHONY_SERVICE);
-        for (CellInfo cellInfo : tm.getAllCellInfo()) {
-            Log.e(TAG, "cell info : " + cellInfo.toString());
-            cells.add(new GSMCellInfo(cellInfo));
+        for (GSMCellInfo info : GSMCellInfoCollector.acquireCells(c)) {
+            Log.w(TAG, "cell info : " + info);
+            cells.add(info);
         }
         return cells;
     }
