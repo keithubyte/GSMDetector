@@ -1,4 +1,4 @@
-package com.bluedon.gsm.detector;
+package com.bluedon.gsm.detector.data;
 
 import android.telephony.CellIdentityGsm;
 import android.telephony.CellIdentityLte;
@@ -13,12 +13,12 @@ import android.telephony.CellInfoWcdma;
  * Date: 2017/8/3
  */
 
-public class CellIdentity {
+public class BSIdentity {
     private CellIdentityGsm gsmId;
     private CellIdentityWcdma wcdmaId;
     private CellIdentityLte lteId;
 
-    public CellIdentity(CellInfo info) {
+    public BSIdentity(CellInfo info) {
         if (info instanceof CellInfoGsm) {
             gsmId = ((CellInfoGsm) info).getCellIdentity();
         } else if (info instanceof CellInfoWcdma) {

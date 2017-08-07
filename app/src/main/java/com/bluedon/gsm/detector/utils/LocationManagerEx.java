@@ -1,4 +1,4 @@
-package com.bluedon.gsm.detector;
+package com.bluedon.gsm.detector.utils;
 
 import android.content.Context;
 import android.location.Location;
@@ -12,15 +12,15 @@ import android.util.Log;
  * Date: 2017/7/31
  */
 
-public class GSMLocationManager {
-    private static final String TAG = GSMLocationManager.class.getName();
+public class LocationManagerEx {
+    private static final String TAG = LocationManagerEx.class.getName();
 
     private LocationManager manager;
     private LocationListener listener;
 
     private Location currentLoc;
 
-    public GSMLocationManager(Context context) {
+    public LocationManagerEx(Context context) {
         manager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         listener = new GSMLocationListener();
     }

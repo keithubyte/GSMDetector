@@ -4,7 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="8dp"
-    tools:context=".GSMDataFragment">
+    tools:context=".ui.GlobalInfoFragment">
+
+    <Button
+        android:id="@+id/update_global_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/update_global_info"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/gsm_data_gps"

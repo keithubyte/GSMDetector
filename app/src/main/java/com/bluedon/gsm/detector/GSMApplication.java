@@ -10,11 +10,10 @@ import com.baidu.mapapi.SDKInitializer;
  */
 
 public class GSMApplication extends Application {
-
     @Override
     public void onCreate() {
         super.onCreate();
         SDKInitializer.initialize(this);
     }
-
 }
+

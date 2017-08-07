@@ -16,4 +16,5 @@
     <string name="network_type">类型</string>
     <string name="cid">CID</string>
     <string name="location">位置</string>
+    <string name="update_global_info">更新全局信息</string>
 </resources>

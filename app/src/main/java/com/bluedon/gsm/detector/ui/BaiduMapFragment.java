@@ -1,14 +1,12 @@
-package com.bluedon.gsm.detector;
+package com.bluedon.gsm.detector.ui;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
@@ -27,13 +25,15 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
+import com.bluedon.gsm.detector.R;
+import com.bluedon.gsm.detector.data.BSInfo;
+import com.bluedon.gsm.detector.utils.LocationConverter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class BaiduMapFragment extends Fragment {
@@ -43,8 +43,6 @@ public class BaiduMapFragment extends Fragment {
 
     @BindView(R.id.baidu_map)
     MapView mMapView;
-    @BindView(R.id.mark_multi_locations)
-    Button mButton;
 
     BaiduMap mBaiduMap;
     LocationClient mLocationClient;
@@ -55,7 +53,7 @@ public class BaiduMapFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_baidu_map, container, false);
         unbinder = ButterKnife.bind(this, rootView);
         mBaiduMap = mMapView.getMap();
-        mLocationClient = new LocationClient(getActivity());
+        mLocationClient = new LocationClient(getActivity().getApplicationContext());
         markMyLocation();
         return rootView;
     }
@@ -117,22 +115,20 @@ public class BaiduMapFragment extends Fragment {
         mLocationClient.start();
     }
 
-    @OnClick(R.id.mark_multi_locations)
-    public void markMultiGPSLocation() {
-        GPSLocation[] gpsLocations = {
-                new GPSLocation(23.124, 113.367),
-                new GPSLocation(23.115, 113.373),
-        };
+    public void markCells(List<BSInfo> list) {
+        mBaiduMap.clear();
         BitmapDescriptor bitmap = BitmapDescriptorFactory.fromResource(R.mipmap.icon_openmap_mark);
         List<OverlayOptions> options = new ArrayList<>();
-        for (int i = 0; i < gpsLocations.length; i++) {
-            LatLng location = LocationConverter.Gps2LatLng(gpsLocations[i]);
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            BSInfo bs = list.get(i);
+            LatLng location = LocationConverter.Gps2LatLng(bs.latitude, bs.longitude);
             OverlayOptions option = new MarkerOptions()
                     .position(location)
                     .icon(bitmap)
                     .zIndex(i)
-                    .title(getString(R.string.pseudo_cell_base) + i)
-                    .animateType(MarkerOptions.MarkerAnimateType.drop);
+                    .title(bs.type + " | " + bs.desc)
+                    .animateType(MarkerOptions.MarkerAnimateType.grow);
             options.add(option);
         }
         mBaiduMap.addOverlays(options);
@@ -143,13 +139,6 @@ public class BaiduMapFragment extends Fragment {
                 InfoWindow window = createInfoWindow(marker);
                 mBaiduMap.showInfoWindow(window);
                 return true;
-            }
-        });
-        // 为了避免重复添加，禁用这个按键
-        ButterKnife.apply(mButton, new ButterKnife.Action<Button>() {
-            @Override
-            public void apply(@NonNull Button view, int index) {
-                view.setEnabled(false);
             }
         });
     }

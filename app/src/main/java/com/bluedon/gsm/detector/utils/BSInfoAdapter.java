@@ -1,4 +1,4 @@
-package com.bluedon.gsm.detector;
+package com.bluedon.gsm.detector.utils;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.bluedon.gsm.detector.R;
+import com.bluedon.gsm.detector.data.BSInfo;
 
 import java.util.List;
 
@@ -17,11 +20,11 @@ import butterknife.ButterKnife;
  * Date: 2017/7/31
  */
 
-public class GSMCellInfoAdapter extends BaseAdapter {
+public class BSInfoAdapter extends BaseAdapter {
     private final Context context;
-    private final List<GSMCellInfo> cells;
+    private final List<BSInfo> cells;
 
-    public GSMCellInfoAdapter(Context context, List<GSMCellInfo> cells) {
+    public BSInfoAdapter(Context context, List<BSInfo> cells) {
         this.context = context;
         this.cells = cells;
     }
@@ -52,7 +55,7 @@ public class GSMCellInfoAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) view.getTag();
         }
-        GSMCellInfo info = cells.get(position);
+        BSInfo info = cells.get(position);
         holder.typeView.setText(info.type);
         holder.bsssView.setText("" + info.bsss);
         holder.lacView.setText("" + info.lac);
@@ -61,6 +64,7 @@ public class GSMCellInfoAdapter extends BaseAdapter {
         return view;
     }
 
+    @SuppressWarnings("WeakerAccess")
     static final class ViewHolder {
         @BindView(R.id.cell_type)
         TextView typeView;

@@ -2,23 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.bluedon.gsm.detector.BaiduMapFragment">
+    tools:context="com.bluedon.gsm.detector.ui.BaiduMapFragment">
 
     <com.baidu.mapapi.map.MapView
         android:id="@+id/baidu_map"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="8.0"
+        android:layout_height="match_parent"
         android:clickable="true" />
-
-    <Button
-        android:id="@+id/mark_multi_locations"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.0"
-        android:gravity="center"
-        android:text="@string/mark_multi_locations"
-        android:textSize="14sp" />
 
 </LinearLayout>

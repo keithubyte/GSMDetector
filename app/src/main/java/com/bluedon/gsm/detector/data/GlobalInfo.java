@@ -1,9 +1,11 @@
-package com.bluedon.gsm.detector;
+package com.bluedon.gsm.detector.data;
 
 import android.content.Context;
 import android.location.Location;
 import android.os.Build;
 import android.util.Log;
+
+import com.bluedon.gsm.detector.utils.BSInfoCollector;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -11,25 +13,25 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class GSMData {
-    private static final String TAG = GSMData.class.getName();
+public class GlobalInfo {
+    private static final String TAG = GlobalInfo.class.getName();
 
-    public List<GSMCellInfo> cells;
+    public List<BSInfo> cells;
     public final String gps;
     public final String date;
     public final String model;
 
-    public GSMData(Context context, Location location) {
+    public GlobalInfo(Context context, Location location) {
         this.cells = getCells(context);
         this.gps = getGPS(location);
         this.date = getDate();
         this.model = getModel();
     }
 
-    private List<GSMCellInfo> getCells(Context context) {
-        List<GSMCellInfo> cells = new ArrayList<>();
+    private List<BSInfo> getCells(Context context) {
+        List<BSInfo> cells = new ArrayList<>();
         Context c = context.getApplicationContext();
-        for (GSMCellInfo info : GSMCellInfoCollector.acquireCells(c)) {
+        for (BSInfo info : BSInfoCollector.collect(c)) {
             Log.w(TAG, "cell info : " + info);
             cells.add(info);
         }

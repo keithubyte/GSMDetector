@@ -29,7 +29,7 @@
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="V1mQQzzNd0GdLEYCG7D4mlLz0QsozBTz" />
-        <activity android:name=".GSMActivity">
+        <activity android:name=".ui.GSMActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
